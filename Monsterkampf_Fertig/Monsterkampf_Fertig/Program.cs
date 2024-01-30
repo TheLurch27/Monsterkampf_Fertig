@@ -27,14 +27,14 @@
                 // Hier wird das erste Monster ausgewählt.
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("Choose Character 1: ");
-                choice1 = int.Parse(Console.ReadLine());
+                choice1 = int.Parse(Console.ReadLine()); // mehr TryParse Exeptions bei Benutzer Eingabe...
                 Console.WriteLine();
 
                 // Hier das Arme Schwein das gegen das erste Monster antreten muss.
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("Choose Character 2: ");
-                choice2 = int.Parse(Console.ReadLine());
+                choice2 = int.Parse(Console.ReadLine()); // mehr TryParse Exeptions bei Benutzer Eingabe...
                 Console.WriteLine();
 
                 // Choice 1 (Monster 1) wird mit Choice 2 (Monster 2) verglichen und geprüft ob es idioten gibt die nicht lesen können und zwei mal den selben ausgewählt haben.
@@ -66,7 +66,7 @@
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Enter the attributes for Monster 2 (Life points (HP), Attack strength (AP), Defense points (DP), Speed (S)): ");
             Console.Write("HP = ");
-            float hp2 = float.Parse(Console.ReadLine());
+            float hp2 = float.Parse(Console.ReadLine()); // TryParse einfügen (Aktuell kann man Buchstaben als Werte eintragen = Absturz Exeption) | Komma Zahlen unterbinden.
             Console.Write("AP = ");
             float ap2 = float.Parse(Console.ReadLine());
             Console.Write("DP = ");
