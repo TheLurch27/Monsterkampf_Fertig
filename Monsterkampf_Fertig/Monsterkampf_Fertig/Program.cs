@@ -14,6 +14,8 @@
             Console.ReadKey();
             Console.Clear();
 
+            #region Monster Auswahl
+
             // Es wird erklärt angezeigt welche Ziffer zu welchem Monster gehört. Die der Spieler dann hoffentlich Ordnungsgemäß eingeben kann!
             Console.WriteLine("Choose 2 Characters for the fight (BUT: The same monsters are not allowed twice!): ");
 
@@ -26,18 +28,24 @@
             {
                 // Hier wird das erste Monster ausgewählt.
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.Write("Choose Character 1: ");
-                choice1 = int.Parse(Console.ReadLine()); // mehr TryParse Exeptions bei Benutzer Eingabe...
-                Console.WriteLine();
+                Console.Write("Choose Character 1 (1-3): ");
+                while (!int.TryParse(Console.ReadLine(), out choice1) || choice1 < 1 || choice1 > 3)
+                {
+                    Console.WriteLine("Invalid input. Please enter a number between 1 and 3.");
+                    Console.Write("Choose Character 1 (1-3): ");
+                }
 
                 // Hier das Arme Schwein das gegen das erste Monster antreten muss.
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("Choose Character 2: ");
-                choice2 = int.Parse(Console.ReadLine()); // mehr TryParse Exeptions bei Benutzer Eingabe...
-                Console.WriteLine();
+                Console.Write("Choose Character 2 (1-3): ");
+                while (!int.TryParse(Console.ReadLine(), out choice2) || choice2 < 1 || choice2 > 3)
+                {
+                    Console.WriteLine("Invalid input. Please enter a number between 1 and 3.");
+                    Console.Write("Choose Character 2 (1-3): ");
+                }
 
-                // Choice 1 (Monster 1) wird mit Choice 2 (Monster 2) verglichen und geprüft ob es idioten gibt die nicht lesen können und zwei mal den selben ausgewählt haben.
+                // Choice 1 (Monster 1) wird mit Choice 2 (Monster 2) verglichen und geprüft, ob es Idioten gibt, die nicht lesen können und zweimal den selben ausgewählt haben.
                 if (choice1 == choice2)
                 {
                     // Wenn es eine Doppelung gibt, wird diese Fehlermeldung ausgegeben.
@@ -48,32 +56,100 @@
                 // Wenn es eine Doppelung gibt, wird die Auswahl wiederholt.
             } while (choice1 == choice2);
 
+            #endregion
+
+            #region Attribute Vergabe
+
+            float hp1, ap1, dp1, s1, hp2, ap2, dp2, s2;
+
             // Hier wird das erste Monster mit Werten vollgestopft, die für den Kampf zwingend benötigt werden.
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Enter the attributes for Monster 1 (Life points (HP), Attack strength (AP), Defense points (DP), Speed (S)): ");
+
+            // Eingabe für Monster 1
+            #region HP
             Console.Write("HP = ");
-            float hp1 = float.Parse(Console.ReadLine());
+            while (!float.TryParse(Console.ReadLine(), out hp1) || hp1 < 0 || hp1 != Math.Floor(hp1))
+            {
+                Console.WriteLine("Invalid input. Please enter a non-negative integer without decimals.");
+                Console.Write("HP = ");
+            }
+            #endregion
+
+            #region AP
             Console.Write("AP = ");
-            float ap1 = float.Parse(Console.ReadLine());
+            while (!float.TryParse(Console.ReadLine(), out ap1) || ap1 < 0 || ap1 != Math.Floor(ap1))
+            {
+                Console.WriteLine("Invalid input. Please enter a non-negative integer without decimals.");
+                Console.Write("AP = ");
+            }
+            #endregion
+
+            #region DP
             Console.Write("DP = ");
-            float dp1 = float.Parse(Console.ReadLine());
+            while (!float.TryParse(Console.ReadLine(), out dp1) || dp1 < 0 || dp1 != Math.Floor(dp1))
+            {
+                Console.WriteLine("Invalid input. Please enter a non-negative integer without decimals.");
+                Console.Write("DP = ");
+            }
+            #endregion
+
+            #region S
             Console.Write("S = ");
-            float s1 = float.Parse(Console.ReadLine());
+            while (!float.TryParse(Console.ReadLine(), out s1) || s1 < 0 || s1 != Math.Floor(s1))
+            {
+                Console.WriteLine("Invalid input. Please enter a non-negative integer without decimals.");
+                Console.Write("S = ");
+            }
+            #endregion
+
             Console.WriteLine();
 
-            // und hier das zweite....
+            // Hier das zweite Monster mit Werten vollgestopft.
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Enter the attributes for Monster 2 (Life points (HP), Attack strength (AP), Defense points (DP), Speed (S)): ");
+
+            // Eingabe für Monster 2
+            #region HP
             Console.Write("HP = ");
-            float hp2 = float.Parse(Console.ReadLine()); // TryParse einfügen (Aktuell kann man Buchstaben als Werte eintragen = Absturz Exeption) | Komma Zahlen unterbinden.
+            while (!float.TryParse(Console.ReadLine(), out hp2) || hp2 < 0 || hp2 != Math.Floor(hp2))
+            {
+                Console.WriteLine("Invalid input. Please enter a non-negative integer without decimals.");
+                Console.Write("HP = ");
+            }
+            #endregion
+
+            #region AP
             Console.Write("AP = ");
-            float ap2 = float.Parse(Console.ReadLine());
+            while (!float.TryParse(Console.ReadLine(), out ap2) || ap2 < 0 || ap2 != Math.Floor(ap2))
+            {
+                Console.WriteLine("Invalid input. Please enter a non-negative integer without decimals.");
+                Console.Write("AP = ");
+            }
+            #endregion
+
+            #region DP
             Console.Write("DP = ");
-            float dp2 = float.Parse(Console.ReadLine());
+            while (!float.TryParse(Console.ReadLine(), out dp2) || dp2 < 0 || dp2 != Math.Floor(dp2))
+            {
+                Console.WriteLine("Invalid input. Please enter a non-negative integer without decimals.");
+                Console.Write("DP = ");
+            }
+            #endregion
+
+            #region S
             Console.Write("S = ");
-            float s2 = float.Parse(Console.ReadLine());
+            while (!float.TryParse(Console.ReadLine(), out s2) || s2 < 0 || s2 != Math.Floor(s2))
+            {
+                Console.WriteLine("Invalid input. Please enter a non-negative integer without decimals.");
+                Console.Write("S = ");
+            }
+            #endregion
+
             Console.ForegroundColor = ConsoleColor.White;
+
+            #endregion
 
             // Hier wird die Variable für das Erste Monster Initalisiert.
             Monster monster1 = null;
